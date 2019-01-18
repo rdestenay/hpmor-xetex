@@ -31,10 +31,10 @@
 %
 % Set-up page sizes and margins
 %
-\setstocksize{9in}{6in}
+\setstocksize{9.25in}{6.125in}
 \settrimmedsize{\stockheight}{\stockwidth}{*}
-\settypeblocksize{7.34in}{4.31in}{*}
-\setlrmargins{*}{*}{0.65}
+\settypeblocksize{7in}{4.25in}{*}
+\setlrmargins{*}{*}{0.6}
 \setulmargins{*}{*}{0.8}
 \setheadfoot{\topskip + \baselineskip}{2\baselineskip}
 \checkandfixthelayout[fixed]
@@ -52,10 +52,10 @@
 ]{GaramondNo8}
 %
 % Chapters, headings, etc.: Lumos (extra spacing looks much better)
-\newfontface\hp[ExternalLocation, LetterSpace=18.0, WordSpace=1.5]{Lumos}
+\newfontface\hp[ExternalLocation, LetterSpace=18.0, WordSpace=1.5]{Cambridge-Serial-Regular}
 \newcommand{\lumos}[1]{{\hp\MakeUppercase{#1}}}
 % Chapter numbers: Lumos (extreme spacing for effect)
-\newfontface\hpchap[ExternalLocation, LetterSpace=80.0, WordSpace=2.0]{Lumos}
+\newfontface\hpchap[ExternalLocation, LetterSpace=40.0, WordSpace=2.0]{Cambridge-Serial-Bold}
 %
 % Font used to draw the magic star
 \newfontface\starfont[ExternalLocation]{Miscelanea.ttf}
@@ -91,7 +91,7 @@
 	\setlength{\afterchapskip}{1\baselineskip}
 	
 	\renewcommand*{\printchapternum}{% " C H A P T E R   O N E "
-		\begin{center} \chapnumfont \hyperref[contents]{CHAPTER \NUMBERstringnum{\thechapter}}\end{center}}
+		\begin{center} \chapnumfont \hyperref[Contents]{CHAPTER \NUMBERstringnum{\thechapter}}\end{center}}
 
 	\renewcommand*{\printchaptername}{}% Not needed, "CHAPTER" added above
 	
@@ -178,7 +178,7 @@
 % Right side header: chapter name
 % Decorative stars in corners
 \makeevenhead{headings}{\Stars}{
-	\hp\hyperref[contents]{\small\rightmark}}{\reflectbox{\Stars}}
+	\hp\hyperref[Contents]{\small\rightmark}}{\reflectbox{\Stars}}
 \makeatletter
 \makeoddhead{headings}{\Stars}{\parbox{99mm}{\centering\hp\small\leftmark}}{\reflectbox{\Stars}}
 \copypagestyle{cleared}{empty}
@@ -276,3 +276,19 @@ Alo-ho-mora Mun-dun-gus Hogs-meade Nym-pha-dora
 Ver-i-ta-serum Tre-lawney Az-ka-ban Poly-juice Sirius basi-lisk
 Phi-neas McKin-non Filius Quiri-nus Love-good whom-ever
 Gryf-fin-dors Huf-fle-puffs Sly-the-rins}
+
+\newcommand{\hackChXV}{{\centering \MakeUppercase{Transfiguration is not permanent!}}}
+
+\renewcommand{\hackChXV}[1]{
+\vskip 0pt plus .5cm
+\begin{center}
+\Large
+\fontspec[ExternalLocation]{Whiteboard}
+\MakeUppercase{#1}
+\settowidth{\versewidth}{\Large \MakeUppercase{Transfiguration is not permanent!}}
+\vskip -1ex
+\addfontfeature{}
+\resizebox{\versewidth}{.6ex}{\rotatebox{90}{I}}
+\end{center}
+\vskip 0pt plus .5cm
+}
